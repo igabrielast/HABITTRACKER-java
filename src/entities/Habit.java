@@ -1,5 +1,6 @@
 package entities;
 
+import enums.StreakGoal;
 import view.LogHabit;
 
 public abstract class Habit {

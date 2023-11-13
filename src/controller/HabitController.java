@@ -1,7 +1,7 @@
 package controller;
 
 import entities.Habit;
-import entities.StreakGoal;
+import enums.StreakGoal;
 import repository.HabitRepository;
 
 public class HabitController implements HabitRepository {
@@ -26,8 +26,6 @@ public class HabitController implements HabitRepository {
             case 2:
                 obj.setDescription(null);
                 break;
-            case 3:
-                obj.setStreakGoal(StreakGoal.valueOf(null));
         }
     }
 }

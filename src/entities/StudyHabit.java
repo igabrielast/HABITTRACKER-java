@@ -1,5 +1,7 @@
 package entities;
 
+import enums.StreakGoal;
+
 public class StudyHabit extends Habit {
     private String subject;
     private String amountTheoryTime;
@@ -52,7 +54,7 @@ public class StudyHabit extends Habit {
                     getName(), getDescription(), getStreakGoal(), getSubject());
         }
         return String.format("NOME: %s\nDESCRIÇÃO: %s\nQUERO TER UM HÁBITO: %s\n" +
-                "MATÉRIA DE ESTUDO: %s\nTEMPO DE ESTUDOS ESTIMADO: %S",
-                getName(), getDescription(), getStreakGoal(), getSubject(), getAmountTheoryTime());
+                "MATÉRIA DE ESTUDO: %s\nTEMPO DE ESTUDOS ESTIMADO PRÁTICA E TEORIA: %s | %s",
+                getName(), getDescription(), getStreakGoal(), getSubject(),getAmountPracticeTime(), getAmountTheoryTime());
     }
 }

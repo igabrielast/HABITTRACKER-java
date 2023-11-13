@@ -1,5 +1,7 @@
 package entities;
 
+import enums.StreakGoal;
+
 public class HealthyHabit extends Habit{
     private String nameExercise;
     private String amountExerciseTime;

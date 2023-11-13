@@ -13,7 +13,7 @@ public abstract class LogHabit {
 
     public static boolean hasDone(char value){
         addDays();
-        if (value == 'y'){
+        if (value == 'y' || value == 'Y'){
             for (int i = 1; i < 6; i++){
                 for (int j = 0; j < 7; j++){
                     if(mat[i][j] == null){
@@ -23,7 +23,7 @@ public abstract class LogHabit {
                 }
             }
         }
-        else if(value == 'n'){
+        else if(value == 'n' || value == 'N'){
             for (int i = 1; i < 6; i++){
                 for (int j = 0; j < 7; j++){
                     if(mat[i][j] == null){
