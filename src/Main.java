@@ -1,6 +1,7 @@
 import controller.HabitController;
 
 import entities.Habit;
+import entities.HealthyHabit;
 import enums.StreakGoal;
 import entities.StudyHabit;
 
@@ -23,16 +24,16 @@ public class Main {
         input.nextLine();
         char r;
 
+        System.out.print("\nDigite o NOME do seu Habit Tracker: ");
+        String name = input.nextLine();
+
+        System.out.print("Digite a DESCRIÇÃO do seu Habit Tracker: ");
+        String description = input.nextLine();
+
+        System.out.print("Digite a META DE SEQUÊNCIA do seu Habit Tracker: ");
+        String streakGoal = input.nextLine().toUpperCase();
+
         if (opt == 1){
-            System.out.print("\nDigite o NOME do seu Study Habit Tracker: ");
-            String name = input.nextLine();
-
-            System.out.print("Digite a DESCRIÇÃO do seu Study Habit Tracker: ");
-            String description = input.nextLine();
-
-            System.out.print("Digite a META DE SEQUÊNCIA do seu Study Habit Tracker: ");
-            String streakGoal = input.nextLine().toUpperCase();
-
             System.out.print("Digite a MATÉRIA do seu Study Habit Tracker: ");
             String subject = input.nextLine();
 
@@ -55,7 +56,25 @@ public class Main {
             System.out.println(track);
         }
         else if(opt == 2){
-
+            System.out.print("Digite o NOME DO EXERCÍCIO FÍSICO do seu Habit Tracker: ");
+            String nameExercise = input.nextLine();
+            System.out.print("Digite a quantidade de tempo de EXERCÍCIO FÍSICO do seu Habit Tracker: ");
+            String amountExerciseTime = input.nextLine();
+            System.out.println("Deseja adicionar uma meta de calorias diárias? Y/N");
+            r = input.next().charAt(0);
+            input.nextLine();
+            if (r == 'Y' || r == 'y'){
+                System.out.println("Qual a quantidade de calorias? ");
+                String qtdCal = input.nextLine();
+                track = new HealthyHabit(name, description, StreakGoal.valueOf(streakGoal), nameExercise,
+                        amountExerciseTime, qtdCal);
+            }
+            else{
+                track = new HealthyHabit(name, description, StreakGoal.valueOf(streakGoal),
+                        nameExercise, amountExerciseTime);
+            }
+            System.out.println("\nSeu Habit Tracker é... ");
+            System.out.println(track);
         }
         do {
             System.out.println("\nO que deseja fazer?");
@@ -85,19 +104,19 @@ public class Main {
                     }
                     controller.att(opt, track, value);
                     System.out.println("\nTracker atualizado com sucesso!");
+                    System.out.println("LOG Habit Tracker");
                     System.out.println(track);
                     break;
                 case 3:
                     System.out.println("\nQual atributo você quer remover?\n1: NOME;\n2: DESCRIÇÃO;");
                     opt = input.nextInt();
                     controller.remove(opt, track);
+                    System.out.println("\nAtributo removido!\nLOG Habit Tracker:");
+                    System.out.println(track);
                 default:
                     System.out.println("Obrigada por utilizar o Habit Tracker!");
             }
         } while (opt != 0);
         input.close();
-    }
-    public static LocalDate tomorrow(LocalDate today){
-        return today.plusDays(1);
     }
 }

@@ -22,13 +22,6 @@ public class HealthyHabit extends Habit{
         this.nameExercise = nameExercise;
         this.amountExerciseTime = amountExerciseTime;
     }
-
-    public HealthyHabit(String name, String description,
-                        StreakGoal streakGoal, String amountCal) {
-        super(name, description, streakGoal);
-        this.amountCal = amountCal;
-    }
-
     public String getNameExercise() {
         return nameExercise;
     }
@@ -59,11 +52,6 @@ public class HealthyHabit extends Habit{
             return String.format("NOME: %s\nDESCRIÇÃO: %s\nQUERO TER UM HÁBITO: %s\n"+
                 "NOME EXERCÍCIO: %S\nTEMPO EXERCÍCIO ESTIMADO: %s", getName(), getDescription(),
                  getStreakGoal(),getNameExercise(), getAmountExerciseTime());
-        }
-        if (getNameExercise() == null){
-            return String.format("NOME: %s\nDESCRIÇÃO: %s\nQUERO TER UM HÁBITO: %s\n"+
-                   "QUANTIDADE DE CALORIAS: %s", getName(), getDescription(), getStreakGoal(),
-                    getAmountCal());
         }
         return String.format("NOME: %s\nDESCRIÇÃO: %s\nQUERO TER UM HÁBITO: %s\n"+
                 "NOME EXERCÍCIO: %S\nTEMPO EXERCÍCIO ESTIMADO: %s\n" +
